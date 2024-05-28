@@ -1,0 +1,39 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'CRUK Scotland Institute Workflow Wizard: sci_wiz'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Ifedayo
+    family-names: Ojo
+    email: i.ojo@crukscotlandinstitute.ac.uk
+    affiliation: CRUK Scotland Institute
+  - given-names: Mayank
+    family-names: Sikarwar
+    email: m.sikarwar@crukscotlandinstitute.ac.uk
+    affiliation: CRUK Scotland Institute
+  - given-names: Ryan
+    family-names: Kwan
+    email: s.kwan@crukscotlandinstitute.ac.uk
+    affiliation: CRUK Scotland Institute
+  - given-names: Robin
+    family-names: Shaw
+    email: r.shaw@crukscotlandinstitute.ac.uk
+    affiliation: CRUK Scotland Institute
+  - given-names: Crispin
+    family-names: Miller
+    email: crispin.miller@glasgow.ac.uk
+    affiliation: CRUK Scotland Institute
+identifiers:
+  - type: url
+    value: >-
+      https://github.com/Beatson-CompBio/sci_wiz-rna-seq-workflow
+    description: 'SCI_WIZ: Scotland institute(CRUK) workflow wizard'
+repository-code: >-
+  https://github.com/Beatson-CompBio/sci_wiz-rna-seq-workflow
+license: MIT
+version: 1.0.0

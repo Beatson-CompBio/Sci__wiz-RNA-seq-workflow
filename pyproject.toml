@@ -1,0 +1,116 @@
+[tool.poetry]
+name = "sci-wiz"
+version = "1.0.0"
+description = "CRUK Scotland Institute workflow wizard for Bulk RNA-seq data."
+authors = ["mayank-singh-sikarwar <mayanksinghsikarwar19@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "sci_wiz"},
+    { include = "nextflow/**/*"}
+]
+
+[tool.poetry.scripts]
+sci_wiz = "sci_wiz.rna_seq:app"
+
+[tool.poetry.dependencies]
+python = "^3.10 || ^3.11 || ^3.12"
+typer = "0.9.0"
+nextflow = "23.10.1"
+Jinja2 = "3.1.3"
+rich = "13.7.1"
+
+[tool.poetry.group.dev.dependencies]
+python-semantic-release = "8.7.0"
+flake8 = "7.0.0"
+pytest = "7.4.4"
+nextflow = "23.10.1"
+black = "23.12.1"
+pytest-cov = "4.1.0"
+cffconvert = "2.0.0"
+ipykernel = "6.29.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+version_variables = ["sci_wiz/__init__.py:__version__",]
+version_toml = ["pyproject.toml:tool.poetry.verison",]
+commit_message = "Release: v{version}"
+commit_parser = "emoji"
+logging_use_named_masks = false
+major_on_zero = true
+tag_format = "v{version}"
+build_command = "pip install poetry && poetry build"
+
+[tool.semantic_release.branches.main]
+match = "(main|master)"
+prerelease_token = "rc"
+prerelease = false
+
+[tool.semantic_release.branches.Prod]
+match = "(Prod|prod)"
+prerelease = false
+
+[tool.semantic_release.changelog]
+template_dir = "templates"
+changelog_file = "CHANGELOG.md"
+exclude_commit_patterns = []
+
+[tool.semantic_release.changelog.environment]
+block_start_string = "{%"
+block_end_string = "%}"
+variable_start_string = "{{"
+variable_end_string = "}}"
+comment_start_string = "{#"
+comment_end_string = "#}"
+trim_blocks = false
+lstrip_blocks = false
+newline_sequence = "\n"
+keep_trailing_newline = false
+extensions = []
+autoescape = true
+
+[tool.semantic_release.commit_author]
+env = "GIT_COMMIT_AUTHOR"
+default = "mayank-singh-sikarwar <m.sikarwar@beatson.gla.ac.uk>"
+
+[tool.semantic_release.commit_parser_options]
+major_tags = [":boom:"]
+minor_tags = [
+    ":sparkles:",
+    ":children_crossing:",
+    ":lipstick:",
+    ":iphone:",
+    ":egg:",
+    ":chart_with_upwards_trend:",
+]
+patch_tags = [
+    ":ambulance:",
+    ":lock:",
+    ":bug:",
+    ":zap:",
+    ":goal_net:",
+    ":alien:",
+    ":wheelchair:",
+    ":speech_balloon:",
+    ":mag:",
+    ":apple:",
+    ":penguin:",
+    ":checkered_flag:",
+    ":robot:",
+    ":green_apple:",
+]
+
+[tool.semantic_release.remote]
+name = "origin"
+type = "github"
+ignore_token_for_push = false
+
+[tool.semantic_release.remote.token]
+env = "GH_TOKEN"
+
+[tool.semantic_release.publish]
+dist_glob_patterns = ["dist/*"]
+upload_to_vcs_release = true
