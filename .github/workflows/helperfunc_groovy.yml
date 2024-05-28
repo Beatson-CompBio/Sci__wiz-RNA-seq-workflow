@@ -1,0 +1,26 @@
+name: Workflow Helper Function test (groovy)
+
+on:
+  push: 
+    branches: 
+      - dev
+
+jobs:
+  test:
+    name: Groovy Helper functions
+    runs-on: ubuntu-latest
+    container:
+      image: beatsoncompbio/groovy:bash
+      volumes: 
+        - ${{ github.workspace}}:/home/groovy/test
+      options: --user root
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3 
+    - name: Run Transformer class test
+      run: |
+        groovy test_scripts/TransformerTest.groovy
+    - name: Run ConcatFile class test
+      run: |
+        groovy test_scripts/ConcatFileTest.groovy

@@ -1,0 +1,47 @@
+name: sci_wiz_ci_workflow
+
+on:
+  push:
+    branches:
+      - Prod
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux, x64]
+
+    # strategy:
+    #   matrix:
+    #     python-version: ["3.9", "3.10", "3.11"]
+
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install poetry
+        poetry install
+
+    - name: Lint code
+      run: poetry run flake8 --ignore=E501,F401,E203,F841,W503,W605 .
+
+    - name: Run tests
+      run: poetry run pytest tests/ --cov=sci_wiz --cov-report html
+
+    - name: Build wheel
+      run: poetry build
+
+    - name: Upload wheel artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: wheels
+        path: |
+          dist/*
+          htmlcov

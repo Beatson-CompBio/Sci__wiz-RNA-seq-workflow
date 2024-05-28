@@ -1,0 +1,29 @@
+name: Workflow Helper Function test (python)
+
+on:
+  push: 
+    branches: 
+      - dev
+
+jobs:
+  test:
+    name: Python Helper functions
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11.5'   
+    
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r test_scripts/requirements.txt  
+
+    - name: Run Pytest
+      run: |
+        python -m pytest test_scripts/test_helperfunc.py
