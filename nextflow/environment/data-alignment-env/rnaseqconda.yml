@@ -1,0 +1,9 @@
+name: ngs-aligner-quant
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies: 
+  - star=2.7.10b
+  - libgcc-ng
+  - subread=2.0.6

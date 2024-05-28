@@ -1,0 +1,19 @@
+title: "RNA-seq workflow implementation with nextflow"
+subtitle: "Quality assessment for Bulk-RNA data preprocessing"
+intro_text: "MultiQC reports summarise analysis results of the trimming, mapping and quality check process."
+
+report_header_info:
+    - Application Type: 'Bulk RNA-seq'
+    - Project Type: 'Bulk RNA-seq'
+
+custom_logo_title: 'Computational Biology Group'
+
+fn_clean_trim:
+  - "trimmed_"
+software_versions:
+  star:   "2.7.10b"
+  fastp:  "0.23.2"
+  fastqc: "0.12.1"
+
+show_analysis_paths: False
+show_analysis_time: False

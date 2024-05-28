@@ -1,0 +1,7 @@
+name: ngs
+channels:
+  - defaults
+  - bioconda
+dependencies: 
+  - fastp=0.23.2
+  - fastqc=0.12.1
