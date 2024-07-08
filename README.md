@@ -41,8 +41,8 @@ To help you quickly start your RNA-seq analysis, we have developed a package whi
 ```python
 python -m venv .sci_wiz && source .sci_wiz/bin/activate
 ```
-#TODO: chage url to public release
-* Download the **latest** package [(.whl file)](https://github.com/Beatson-CompBio/RNA-seq-workflow/releases) from the release section of this repository and save it into your current working directory. Use the following command to install the package.
+
+* Download the **latest** package [(.whl file)](https://github.com/Beatson-CompBio/sci_wiz-rna-seq-workflow/releases) from the release section of this repository and save it into your current working directory. Use the following command to install the package.
 
 ```python
 pip install sci_wiz-{version}-py3-none-any.whl
